@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 2 2 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #fa86b4;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    /*-webkit-transition: all 0.3 ease;*/
+    /*transition: all 0.3 ease;*/
+    cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+    background: #fa86d5;
+}
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 16px;
+}
+.form .message a {
+    color: #211d1d;
+    text-decoration: none;
+
+}
+
+body {
+    background: #fa86b4; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #fa86b0, #fa86b9);
+    background: -moz-linear-gradient(right, #fa86b0, #fa86b9);
+    background: -o-linear-gradient(right, #fa86b0, #fa86b9);
+    background: linear-gradient(to left, #fa86b0, #fa86b9);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    align-content: start;
+}
+
+input[type="checkbox"] {
+    width: 50px;
+}

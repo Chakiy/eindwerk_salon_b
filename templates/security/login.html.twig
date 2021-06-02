@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+
+        <h1 style="text-align: center">Login</h1>
+        <div class="form">
+
+
+            <form  method="post">
+
+
+
+                {% if error %}
+                    <div style="color: red">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+
+                <label for="inputEmail">Email:</label>
+                <input type="email" id="email" name="_email" value="{{ last_username }}"/>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password"/>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="_remember_me">Remember me
+                </label>
+                </div>
+                <button type="submit">login</button>
+
+            </form><p class="message">Not registered? <a href="https://wdev2.be/khachatur21/eindwerk/register">Create an account</a></p>
+        </div>
+
+{% endblock %}

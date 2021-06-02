@@ -1,0 +1,3 @@
+abracadabra:
+  path:     /api/login_check
+  methods:  [POST]

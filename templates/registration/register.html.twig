@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align: center">Register</h1>
+    <div class="form">
+
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.lastName) }}
+        {{ form_row(registrationForm.gsm) }}
+        {{ form_row(registrationForm.sex) }}
+        {{ form_row(registrationForm.bday)}}
+        {{ form_row(registrationForm.address.street) }}
+
+        {{ form_row(registrationForm.address.streetNr) }}
+        {{ form_row(registrationForm.address.zipCode) }}
+        {{ form_row(registrationForm.address.city) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+        <p class="message">Already have a account? <a href="https://wdev2.be/khachatur21/eindwerk/login">Login</a></p>
+    {{ form_end(registrationForm) }}
+
+    </div>
+
+{% endblock %}
