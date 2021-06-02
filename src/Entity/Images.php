@@ -39,6 +39,17 @@ class Images
     private $nameFile;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Services::class, inversedBy="images")
+     * @ORM\JoinColumn(nullable=false)
+     */
+        private $serviceImage;
+
+        /**
+         * @ORM\Column(type="string", length=255)
+         */
+        private $imgAbout;
+
+    /**
      * @param mixed $id
      */
     public function __construct()
@@ -96,6 +107,30 @@ class Images
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getServiceImage(): ?Services
+    {
+        return $this->serviceImage;
+    }
+
+    public function setServiceImage(?Services $serviceImage): self
+    {
+        $this->serviceImage = $serviceImage;
+
+        return $this;
+    }
+
+    public function getImgAbout(): ?string
+    {
+        return $this->imgAbout;
+    }
+
+    public function setImgAbout(string $imgAbout): self
+    {
+        $this->imgAbout = $imgAbout;
 
         return $this;
     }

@@ -53,12 +53,18 @@ class Services
      */
     private $costs;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="serviceImage", cascade={"remove"})
+     */
+    private $images;
+
 
 
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
         $this->costs = new ArrayCollection();
+        $this->images = new ArrayCollection();
 
     }
 
@@ -165,6 +171,36 @@ class Services
 
     public function __toString(){
         return $this->name;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setServiceImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getServiceImage() === $this) {
+                $image->setServiceImage(null);
+            }
+        }
+
+        return $this;
     }
 
 
