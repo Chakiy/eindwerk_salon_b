@@ -8,11 +8,13 @@ use App\Entity\Appointment;
 use App\Entity\Cost;
 use App\Entity\Customer;
 use App\Entity\Images;
+use App\Entity\Questions;
 use App\Entity\Services;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Symfony\Component\Console\Question\Question;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -47,6 +49,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Customer');
         yield MenuItem::linkToCrud('Customers', 'fas fa-user', Customer::class);
         yield MenuItem::linkToCrud('Appointment', 'far fa-calendar-alt', Appointment::class);
+        yield MenuItem::linkToCrud('Questions', 'far fa-envelope-open', Questions::class);
         yield MenuItem::linkToCrud('Address', 'fas fa-map-marked-alt', Address::class);
 
         yield MenuItem::section('Services');
