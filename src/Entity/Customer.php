@@ -51,7 +51,7 @@ class Customer implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank( message="Geen geldig e-mail adres")
      * @Groups({"user:read", "user:write"})
      */
     private $name;

@@ -56,8 +56,9 @@ security:
     access_control:
           - { path: '/register', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
           - { path: '/login', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
-          - { path: '/myapi/services', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
-          - { path: '/api/questions', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
+          - { path: '/api/services', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [GET] }
+          - { path: '/api/customers', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [POST] }
+          - { path: '/myapi/questions', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [POST] }
           - { path: '^/api/login', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
           - { path: '^/api', roles: [ IS_AUTHENTICATED_FULLY ] }
           - { path: '/admin', roles: [ ROLE_ADMIN ] }

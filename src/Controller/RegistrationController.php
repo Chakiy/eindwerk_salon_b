@@ -47,8 +47,9 @@ class RegistrationController extends AbstractController
             $to = $user->getEmail();
             $subject = 'Welcome to Beauty Salon Lakshmi';
             $name = $user->getFullName($user->getName(), $user->getLastName());
+            $template = 'email/welcome.html.twig';
 
-            $khachaturMailService->sendEmail($mailer,$to,$subject,$name);
+            $khachaturMailService->sendEmail($mailer,$to, $template ,$subject,$name);
 
 
 
