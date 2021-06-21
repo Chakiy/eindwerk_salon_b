@@ -10,6 +10,7 @@ security:
             entity:
                 class: App\Entity\Customer
                 property: email
+   # route for asking jwt
     firewalls:
         login:
             pattern: ^/api/login_check
@@ -19,7 +20,7 @@ security:
                 check_path: /api/login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-
+# if you have a valid jwt then you have access to
 #        api:
 #            pattern: ^/api
 #            stateless: true
@@ -57,7 +58,8 @@ security:
           - { path: '/register', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
           - { path: '/login', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
           - { path: '/api/services', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [GET] }
-          - { path: '/api/customers', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [POST] }
+          - { path: '/api/customers', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [GET, PUT, POST] }
+          - { path: '/api/appointments', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [ GET, PUT, POST ] }
           - { path: '/myapi/questions', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ], methods: [POST] }
           - { path: '^/api/login', roles: [ IS_AUTHENTICATED_ANONYMOUSLY ] }
           - { path: '^/api', roles: [ IS_AUTHENTICATED_FULLY ] }
